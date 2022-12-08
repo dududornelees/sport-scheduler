@@ -5,7 +5,7 @@ export const Layout = ({ children }: P.Props) => {
     return (
         <>
             <Header />
-            {children}
+            <main className="max-w-4xl mx-auto px-4 lg:px-0">{children}</main>
         </>
     );
 };

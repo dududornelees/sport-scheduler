@@ -1,24 +1,34 @@
 import Head from "next/head";
-import { Layout, TextBox } from "components";
+import { Layout, TextBox, SportCard } from "components";
+import { SportCardService } from "services";
 
-const Home = () => {
+type Props = {
+    sportsCards: SportCard[];
+};
+
+export const getStaticProps = async () => {
+    const sportsCards = await SportCardService.getSportsCards();
+    return { props: { sportsCards } };
+};
+
+const Home = ({ sportsCards }: Props) => {
     return (
         <div>
             <Head>
                 <title>Sport Scheduler</title>
                 <meta name="description" content="Sport Scheduler - Faça o agendamento do seu esporte preferido!" />
                 <link rel="icon" href="/favicon.ico" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-                    rel="stylesheet"
-                />
             </Head>
 
             <main>
                 <Layout>
-                    <TextBox texts={["Vamos começar!", "Selecione o esporte que você vai praticar:"]} />
+                    <TextBox texts={["Vamos começar!", "Selecione a quadra:"]} />
+
+                    <div className="grid gap-4 lg:gap-8 lg:grid-cols-2">
+                        {sportsCards.map((sportCard, index) => (
+                            <SportCard key={index} sportCard={sportCard} />
+                        ))}
+                    </div>
                 </Layout>
             </main>
         </div>
