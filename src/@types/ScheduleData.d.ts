@@ -1,0 +1,3 @@
+type ScheduleData = {
+    date: string;
+};

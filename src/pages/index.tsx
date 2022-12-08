@@ -1,17 +1,17 @@
 import Head from "next/head";
-import { Layout, TextBox, SportCard } from "components";
-import { SportCardService } from "services";
+import { Layout, Stages } from "components";
+import { SportService } from "services";
 
 type Props = {
-    sportsCards: SportCard[];
+    sports: Sport[];
 };
 
 export const getStaticProps = async () => {
-    const sportsCards = await SportCardService.getSportsCards();
-    return { props: { sportsCards } };
+    const sports = await SportService.getSports();
+    return { props: { sports } };
 };
 
-const Home = ({ sportsCards }: Props) => {
+const Home = ({ sports }: Props) => {
     return (
         <div>
             <Head>
@@ -22,13 +22,7 @@ const Home = ({ sportsCards }: Props) => {
 
             <main>
                 <Layout>
-                    <TextBox texts={["Vamos começar!", "Selecione a quadra:"]} />
-
-                    <div className="grid gap-4 lg:gap-8 lg:grid-cols-2">
-                        {sportsCards.map((sportCard, index) => (
-                            <SportCard key={index} sportCard={sportCard} />
-                        ))}
-                    </div>
+                    <Stages sports={sports} />
                 </Layout>
             </main>
         </div>

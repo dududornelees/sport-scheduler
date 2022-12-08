@@ -1,2 +1,2 @@
 export * from "./Firebase";
-export * from "./SportCardService";
+export * from "./SportService";
