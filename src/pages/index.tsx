@@ -15,8 +15,8 @@ const Home = ({ sports }: Props) => {
     return (
         <div>
             <Head>
-                <title>Sport Scheduler</title>
-                <meta name="description" content="Sport Scheduler - Faça o agendamento do seu esporte preferido!" />
+                <title>Prime Sports - Agendamento de quadras</title>
+                <meta name="description" content="Prime Sports - Faça o agendamento do seu esporte preferido!" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

@@ -6,9 +6,9 @@ export const SportService = {
         const q = query(collection(db, "sports"));
         const querySnapshot = await getDocs(q);
 
-        let sportsCards: SportCard[] | any = [];
-        querySnapshot.forEach((doc) => sportsCards.push(doc.data()));
+        let sports: Sport[] | any = [];
+        querySnapshot.forEach((doc) => sports.push(doc.data()));
 
-        return sportsCards;
+        return sports;
     }
 };
