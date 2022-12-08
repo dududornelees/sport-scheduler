@@ -14,14 +14,16 @@ export const FirstStage = ({ data, setData, activeStage, setActiveStage }: P.Pro
             <div className="flex items-center justify-center flex-col gap-3">
                 <Button
                     title="Hoje"
-                    disabled={data.date !== "today" && activeStage > 0}
                     onClick={() => handleSelectDate("today")}
+                    disabled={data.date !== "today" && activeStage > 0}
+                    selected={data.date === "today" && activeStage > 0}
                 />
 
                 <Button
                     title="Outra data"
-                    disabled={data.date !== "other" && activeStage > 0}
                     onClick={() => handleSelectDate("other")}
+                    disabled={data.date !== "other" && activeStage > 0}
+                    selected={data.date === "other" && activeStage > 0}
                 />
             </div>
         </>

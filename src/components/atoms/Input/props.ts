@@ -1,4 +1,6 @@
-export type Props = {
+import { ChangeEvent, InputHTMLAttributes } from "react";
+
+export interface Props extends InputHTMLAttributes<HTMLInputElement> {
     placeholder: string;
-    onChange?: () => void;
-};
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+}

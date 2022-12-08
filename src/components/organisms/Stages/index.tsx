@@ -4,7 +4,7 @@ import * as P from "./props";
 
 export const Stages = ({ sports }: P.Props) => {
     const [activeStage, setActiveStage] = useState(0);
-    const [data, setData] = useState({ date: "" });
+    const [data, setData] = useState({ date: "", block: "", hour: "", name: "", cellphone: "" });
 
     return (
         <>
