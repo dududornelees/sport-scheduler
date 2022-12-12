@@ -8,11 +8,11 @@ export const Stages = ({ sports }: P.Props) => {
 
     return (
         <>
-            {activeStage >= 0 && (
+            <div className={`transition-all duration-300 ${activeStage >= 0 ? "opacity-100 pt-0" : "opacity-0 pt-6"}`}>
                 <FirstStage data={data} setData={setData} activeStage={activeStage} setActiveStage={setActiveStage} />
-            )}
+            </div>
 
-            {activeStage >= 1 && (
+            <div className={`transition-all duration-300 ${activeStage >= 1 ? "opacity-100 pt-0" : "opacity-0 pt-6"}`}>
                 <SecondStage
                     data={data}
                     setData={setData}
@@ -20,15 +20,15 @@ export const Stages = ({ sports }: P.Props) => {
                     setActiveStage={setActiveStage}
                     sports={sports}
                 />
-            )}
+            </div>
 
-            {activeStage >= 2 && (
+            <div className={`transition-all duration-300 ${activeStage >= 2 ? "opacity-100 pt-0" : "opacity-0 pt-6"}`}>
                 <ThirdStage data={data} setData={setData} activeStage={activeStage} setActiveStage={setActiveStage} />
-            )}
+            </div>
 
-            {activeStage >= 3 && (
+            <div className={`transition-all duration-300 ${activeStage >= 3 ? "opacity-100 pt-0" : "opacity-0 pt-6"}`}>
                 <FourthStage data={data} setData={setData} activeStage={activeStage} setActiveStage={setActiveStage} />
-            )}
+            </div>
         </>
     );
 };
